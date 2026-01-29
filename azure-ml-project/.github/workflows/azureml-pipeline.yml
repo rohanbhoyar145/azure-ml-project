@@ -5,7 +5,7 @@ on:
     branches:
       - main
   workflow_dispatch:
-
+# trigger detection
 jobs:
   train-and-test:
     runs-on: ubuntu-latest

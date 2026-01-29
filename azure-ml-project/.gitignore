@@ -1,3 +1,18 @@
+# Data
+data/
+*.csv
 
+# Outputs
+outputs/
+
+# Environments
 mlops_env/
+.env
+__pycache__/
+
+# Azure ML
+.azureml/
+
+# Python
+*.pyc
 

@@ -1,9 +1,10 @@
-name: CI
+name: CI Test + Azure ML
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   test:
@@ -13,5 +14,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run a test command
-        run: echo "GitHub Actions is working"
+      - name: Test GitHub Actions
+        run: echo "GitHub Actions is working ✅"
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Install Azure ML dependency
+        run: |
+          pip install --upgrade pip
+          pip install azureml-core
+
+      - name: Run pipeline script
+        run: |
+          echo "Running Azure ML pipeline"
+          python pipeline.py
